@@ -1,0 +1,32 @@
+/* =========================================================
+   FIRESTORE SECURITY RULES
+   Paste this into: Firebase Console → Firestore Database → Rules tab
+   → replace everything → Publish.
+
+   Design:
+   - "bookedSlots" holds ONLY a date + time per booking (no personal
+     info). Anyone can read it (needed to grey out taken slots) and
+     anyone can create one (needed for the public booking form).
+   - "appointments" holds the full patient record (name, CNIC, phone,
+     email, reason, notes). Anyone can create one (submit a booking),
+     but only a signed-in admin (you) can read, update, or delete —
+     so patient data, including CNIC numbers, is never public.
+========================================================= */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /bookedSlots/{slotId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasAll(['apptDate', 'apptTime']);
+      allow update, delete: if request.auth != null;
+    }
+
+    match /appointments/{apptId} {
+      allow create: if request.resource.data.keys().hasAll(
+        ['fullName', 'cnic', 'phone', 'email', 'apptDate', 'apptTime', 'reason', 'status']
+      );
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}

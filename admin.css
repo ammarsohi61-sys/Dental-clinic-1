@@ -1,0 +1,48 @@
+.admin-login-box {
+  max-width: 420px;
+}
+
+.admin-table-wrap {
+  margin-top: 2rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.admin-table th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-700);
+  background: var(--paper-muted);
+}
+
+.admin-table tbody tr:hover { background: var(--paper-muted); }
+
+.status-select {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn-sm { padding: 0.4em 0.9em; font-size: 0.8rem; }
