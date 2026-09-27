@@ -577,7 +577,7 @@ function initLightbox() {
   if (licenseBtn) {
     licenseBtn.addEventListener("click", () => {
       openLightbox(
-        "pmdc-permanent-license.png",
+        "pmdc-permanent-license.jpg",
         "PMDC Permanent Certificate of Dental Registration"
       );
     });
