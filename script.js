@@ -80,7 +80,7 @@ const SLOT_INTERVAL_MINUTES = 30;
    Email uses FormSubmit.co (no signup needed) sending straight
    to your inbox. IMPORTANT: the very first submission after
    this goes live will trigger a one-time confirmation email
-   from FormSubmit to ammarfarooq3595@gmail.com — you must click
+   from FormSubmit to hammadshah138@gmail.com — you must click
    the "Activate Form" link inside it once, or future emails
    won't arrive.
 
@@ -90,7 +90,7 @@ const SLOT_INTERVAL_MINUTES = 30;
    text is set below as "_autoresponse" in initBookingForm). No
    extra setup needed beyond the one-time activation above.
 ========================================================= */
-const BOOKING_EMAIL_ENDPOINT = "https://formsubmit.co/ajax/ammarfarooq3595@gmail.com";
+const BOOKING_EMAIL_ENDPOINT = "https://formsubmit.co/ajax/hammadshah138@gmail.com";
 const CLINIC_WHATSAPP_NUMBER = "923226408097"; // no + or leading zero
 
 // Sends the booking notification + patient auto-reply via FormSubmit.

@@ -11,6 +11,9 @@
      email, reason, notes). Anyone can create one (submit a booking),
      but only a signed-in admin (you) can read, update, or delete —
      so patient data, including CNIC numbers, is never public.
+   - "prescriptions" holds patient prescriptions written from the
+     admin dashboard. Fully private: only a signed-in admin (you)
+     can read, create, update, or delete — nothing here is public.
 ========================================================= */
 rules_version = '2';
 service cloud.firestore {
@@ -27,6 +30,10 @@ service cloud.firestore {
         ['fullName', 'cnic', 'phone', 'email', 'apptDate', 'apptTime', 'reason', 'status']
       );
       allow read, update, delete: if request.auth != null;
+    }
+
+    match /prescriptions/{rxId} {
+      allow read, create, update, delete: if request.auth != null;
     }
   }
 }

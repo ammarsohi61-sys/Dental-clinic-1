@@ -23,6 +23,10 @@
         <small>Appointments</small>
       </span>
     </a>
+    <nav class="admin-tabs" id="adminTabs" hidden>
+      <button type="button" class="admin-tab-btn active" id="tabApptBtn">Appointments</button>
+      <button type="button" class="admin-tab-btn" id="tabRxBtn">Prescriptions</button>
+    </nav>
     <div class="header-actions">
       <button class="btn btn-ghost" id="logoutBtn" hidden>Log out</button>
     </div>
@@ -73,6 +77,64 @@
           </tr>
         </thead>
         <tbody id="apptTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRESCRIPTIONS ================= -->
+<section class="section" id="prescriptionsSection" hidden>
+  <div class="section-inner">
+    <p class="eyebrow">Prescriptions</p>
+    <h2>Write a prescription</h2>
+    <p class="section-lead">Saved prescriptions appear in the table below, visible only to signed-in admins.</p>
+
+    <form id="prescriptionForm" class="booking-form" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="rxPatientName">Patient name</label>
+          <input type="text" id="rxPatientName" required>
+        </div>
+        <div class="form-field">
+          <label for="rxAge">Age</label>
+          <input type="number" id="rxAge" min="0" max="130">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="rxDiagnosis">Diagnosis</label>
+        <input type="text" id="rxDiagnosis" required placeholder="e.g. Irreversible pulpitis, tooth #36">
+      </div>
+      <div class="form-field">
+        <label for="rxMedicines">Medicines</label>
+        <textarea id="rxMedicines" rows="4" required placeholder="One per line, e.g.&#10;Amoxicillin 500mg — 1 tab TID — 5 days&#10;Ibuprofen 400mg — 1 tab SOS — pain"></textarea>
+      </div>
+      <div class="form-field">
+        <label for="rxInstructions">Instructions / notes</label>
+        <textarea id="rxInstructions" rows="2" placeholder="e.g. Avoid hot/cold foods, salt-water rinses"></textarea>
+      </div>
+      <div class="form-field">
+        <label for="rxNextVisit">Next visit (optional)</label>
+        <input type="date" id="rxNextVisit">
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Save prescription</button>
+      <p class="form-status" id="rxStatus" role="status"></p>
+    </form>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table" id="rxTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Patient</th>
+            <th>Age</th>
+            <th>Diagnosis</th>
+            <th>Medicines</th>
+            <th>Instructions</th>
+            <th>Next visit</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="rxTableBody"></tbody>
       </table>
     </div>
   </div>
